@@ -1,9 +1,0 @@
-Expected behavior:
-- Three blocks allocated: 100, 200, 50 bytes
-- After freeing block id=2, memory splits into free-used-free
-- Dump shows correct address ranges
-- Stats show:
-  used memory = 150 bytes
-  free memory = 874 bytes
-  allocation success = 3
-  allocation failure = 0

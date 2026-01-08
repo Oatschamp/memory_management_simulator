@@ -1,5 +1,0 @@
-Observed:
-- Page hits and faults match expected paging behavior
-- L1 cache misses on cold start
-- L2 cache captures reuse
-- Correct access order enforced

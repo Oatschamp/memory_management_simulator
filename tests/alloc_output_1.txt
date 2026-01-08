@@ -1,0 +1,22 @@
+memory simulator started
+> memory initialized with size 1024
+> allocator set to first_fit
+> allocated block id=1
+> allocated block id=2
+> allocated block id=3
+> [0x0 - 0x63] USED (id=1)
+[0x64 - 0x12b] USED (id=2)
+[0x12c - 0x15d] USED (id=3)
+[0x15e - 0x3ff] FREE
+> > [0x0 - 0x63] USED (id=1)
+[0x64 - 0x12b] FREE
+[0x12c - 0x15d] USED (id=3)
+[0x15e - 0x3ff] FREE
+> total memory: 1024
+used memory: 150
+free memory: 874
+memory utilization: 14.6484%
+external fragmentation: 22.8833%
+allocation success: 3
+allocation failure: 0
+> exiting simulator

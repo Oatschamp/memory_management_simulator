@@ -1,0 +1,160 @@
+MEMORY MANAGEMENT SIMULATOR — RUN INSTRUCTIONS
+=============================================
+
+This simulator models OS-level memory management including
+dynamic allocation strategies, a buddy allocator, cache simulation,
+and virtual memory with paging.
+
+------------------------------------------------------------
+BUILD INSTRUCTIONS
+------------------------------------------------------------
+
+On Windows (PowerShell, using g++):
+
+Run the following command from the project root directory:
+
+g++ -std=c++17 -Iinclude -Isrc -Isrc/allocator -Isrc/buddy -Isrc/cache -Isrc/virtual_memory ^
+src/main.cpp ^
+src/memory_manager.cpp ^
+src/physical_memory.cpp ^
+src/statistics.cpp ^
+src/buddy/buddy_allocator.cpp ^
+src/cache/cache_level.cpp ^
+src/virtual_memory/virtual_memory_manager.cpp ^
+-o memsim
+
+After successful compilation, an executable named `memsim` is created.
+
+------------------------------------------------------------
+RUNNING THE SIMULATOR
+------------------------------------------------------------
+
+On Windows PowerShell:
+
+.\memsim
+
+The simulator starts with an interactive command prompt:
+
+memory simulator started
+>
+
+------------------------------------------------------------
+SUPPORTED COMMANDS
+------------------------------------------------------------
+
+1. init memory <size>
+
+Initializes physical memory of the given size (in bytes).
+This command must be executed before any allocation.
+
+Example:
+init memory 1024
+
+
+2. set allocator <type>
+
+Selects the memory allocation strategy.
+
+Supported allocators:
+- first_fit
+- best_fit
+- worst_fit
+- buddy
+
+Examples:
+set allocator first_fit
+set allocator best_fit
+set allocator worst_fit
+set allocator buddy
+
+
+3. malloc <size>
+
+Allocates a block of memory of the given size (in bytes).
+Returns a block ID if successful.
+
+Example:
+malloc 100
+
+Output:
+allocated block id=1
+
+If allocation fails:
+allocation failed
+
+
+4. free <block_id>
+
+Frees a previously allocated block using its block ID.
+
+Example:
+free 1
+
+For non-buddy allocators, adjacent free blocks are coalesced.
+For the buddy allocator, deallocation is handled symbolically.
+
+
+5. dump
+
+Displays the current physical memory layout, showing
+allocated and free blocks with address ranges.
+
+Example output:
+[0x0 - 0x63] FREE
+[0x64 - 0x12b] USED (id=2)
+[0x12c - 0x3ff] FREE
+
+
+6. stats
+
+Displays memory usage statistics, including:
+
+- Total memory
+- Used memory
+- Free memory
+- Memory utilization
+- External fragmentation (for first/best/worst fit)
+- Internal fragmentation (for buddy allocator)
+- Allocation success count
+- Allocation failure count
+
+Example:
+stats
+
+
+7. exit
+
+Exits the simulator.
+
+Example:
+exit
+
+------------------------------------------------------------
+EXAMPLE SESSION
+------------------------------------------------------------
+
+init memory 1024
+set allocator first_fit
+malloc 100
+malloc 200
+dump
+free 1
+dump
+stats
+exit
+
+------------------------------------------------------------
+NOTES
+------------------------------------------------------------
+
+- Sizes are specified in bytes.
+- Physical memory is simulated as a contiguous region.
+- Buddy allocation rounds sizes up to the nearest power of two.
+- Cache simulation and virtual memory are integrated internally
+  and demonstrated through test artifacts and logs.
+- The simulator enforces the access order:
+  Virtual Address → Page Table → Physical Address → Cache → Memory.
+
+------------------------------------------------------------
+END OF DOCUMENT
+------------------------------------------------------------

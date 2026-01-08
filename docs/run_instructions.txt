@@ -1,42 +1,14 @@
-MEMORY MANAGEMENT SIMULATOR — RUN INSTRUCTIONS
-=============================================
+Build using Makefile (Linux / macOS / WSL / MSYS2):
 
-This simulator models OS-level memory management including
-dynamic allocation strategies, a buddy allocator, cache simulation,
-and virtual memory with paging.
+1. Clone the repository:
+   git clone https://github.com/Oatschamp/memory_management_simulator.git
+   cd memory_management_simulator
 
-------------------------------------------------------------
-BUILD INSTRUCTIONS
-------------------------------------------------------------
+2. Build the project:
+   make
 
-On Windows (PowerShell, using g++):
-
-Run the following command from the project root directory:
-
-g++ -std=c++17 -Iinclude -Isrc -Isrc/allocator -Isrc/buddy -Isrc/cache -Isrc/virtual_memory ^
-src/main.cpp ^
-src/memory_manager.cpp ^
-src/physical_memory.cpp ^
-src/statistics.cpp ^
-src/buddy/buddy_allocator.cpp ^
-src/cache/cache_level.cpp ^
-src/virtual_memory/virtual_memory_manager.cpp ^
--o memsim
-
-After successful compilation, an executable named `memsim` is created.
-
-------------------------------------------------------------
-RUNNING THE SIMULATOR
-------------------------------------------------------------
-
-On Windows PowerShell:
-
-.\memsim
-
-The simulator starts with an interactive command prompt:
-
-memory simulator started
->
+3. Run the simulator:
+   ./memsim
 
 ------------------------------------------------------------
 SUPPORTED COMMANDS

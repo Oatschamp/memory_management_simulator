@@ -175,19 +175,7 @@ memory-simulator/
 
 ---
 
-## Build Instructions (Windows)
-
-Compile using `g++` from the project root:
-
-```powershell
-g++ -std=c++17 -Iinclude -Isrc -Isrc/allocator -Isrc/buddy -Isrc/cache -Isrc/virtual_memory ^
-src/main.cpp ^
-src/memory_manager.cpp ^
-src/physical_memory.cpp ^
-src/statistics.cpp ^
-src/buddy/buddy_allocator.cpp ^
-src/cache/cache_level.cpp ^
-src/virtual_memory/virtual_memory_manager.cpp ^
--o memsim
-```
+## Build Instructions 
+Following file contains all commands and their use.
+[How to run](docs/run_instructions.txt)
 

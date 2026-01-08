@@ -179,3 +179,5 @@ memory-simulator/
 Following file contains all commands and their use.
 [How to run](docs/run_instructions.txt)
 
+## Demo Video
+[video](https://drive.google.com/file/d/1vt0lxNvMO704G1xz1DDdvwCQ3Tp3Z8jY/view?usp=sharing)
